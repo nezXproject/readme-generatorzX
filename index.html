@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 GitHub Profile README Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 GitHub Profile README Generator</h1>
+            <p class="subtitle">Buat README profil GitHub yang memukau dalam hitungan detik!</p>
+        </header>
+
+        <div class="main-content">
+            <!-- FORM SECTION -->
+            <div class="form-section">
+                <h2>📝 Data Profil</h2>
+                
+                <div class="form-group">
+                    <label>Username GitHub *</label>
+                    <input type="text" id="username" placeholder="nezXproject" value="nezXproject">
+                </div>
+
+                <div class="form-group">
+                    <label>Nama Tampilan</label>
+                    <input type="text" id="displayName" placeholder="nezX" value="nezX">
+                </div>
+
+                <div class="form-group">
+                    <label>Role / Title</label>
+                    <input type="text" id="role" placeholder="Full-Stack Developer in Progress" value="Full-Stack Developer in Progress">
+                </div>
+
+                <div class="form-group">
+                    <label>Lokasi</label>
+                    <input type="text" id="location" placeholder="Indonesia 🇮🇩" value="Indonesia 🇮🇩">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="your-email@example.com" value="your-email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Bio / Tentang Saya</label>
+                    <textarea id="bio" rows="3" placeholder="Sedang mempertajam fundamental full-stack coding">Sedang mempertajam fundamental full-stack coding</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Fun Fact</label>
+                    <input type="text" id="funFact" placeholder="Suka membuat project dengan twist kreatif!" value="Suka membuat project dengan twist kreatif!">
+                </div>
+
+                <div class="form-group">
+                    <label>Motto</label>
+                    <input type="text" id="motto" placeholder="Belajar, Bangun, Bagikan 🚀" value="Belajar, Bangun, Bagikan 🚀">
+                </div>
+
+                <h2>💻 Tech Stack</h2>
+                <div class="form-group">
+                    <label>Programming Languages (pisahkan dengan koma)</label>
+                    <input type="text" id="languages" placeholder="Python, JavaScript, PHP, HTML, Shell" value="Python, JavaScript, PHP, HTML5, Shell Script">
+                </div>
+
+                <div class="form-group">
+                    <label>Tools & Platforms (pisahkan dengan koma)</label>
+                    <input type="text" id="tools" placeholder="Git, GitHub, Linux, VS Code" value="Git, GitHub, Linux, Termux, VS Code">
+                </div>
+
+                <h2>📌 Projects</h2>
+                <div id="projectsContainer">
+                    <!-- Project items akan di-generate via JS -->
+                </div>
+                <button type="button" class="btn-add" onclick="addProject()">➕ Tambah Project</button>
+
+                <h2>🎨 Tema</h2>
+                <div class="form-group">
+                    <label>Pilih Tema</label>
+                    <select id="theme">
+                        <option value="tokyonight">🌃 Tokyo Night</option>
+                        <option value="radical">🌈 Radical</option>
+                        <option value="dracula">🧛 Dracula</option>
+                        <option value="gruvbox">🎨 Gruvbox</option>
+                        <option value="onedark">🌙 One Dark</option>
+                        <option value="synthwave">🎵 Synthwave</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Warna Aksen</label>
+                    <input type="color" id="accentColor" value="#36BCF7">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-generate" onclick="generateReadme()">✨ Generate README</button>
+                    <button class="btn-clear" onclick="clearForm()">🗑️ Reset</button>
+                </div>
+            </div>
+
+            <!-- PREVIEW SECTION -->
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h2>👁️ Preview & Output</h2>
+                    <div class="preview-actions">
+                        <button class="btn-copy" onclick="copyReadme()">📋 Copy</button>
+                        <button class="btn-download" onclick="downloadReadme()">⬇️ Download</button>
+                    </div>
+                </div>
+                <div class="preview-tabs">
+                    <button class="tab-btn active" onclick="switchTab('raw')">📄 Raw Markdown</button>
+                    <button class="tab-btn" onclick="switchTab('rendered')">🎨 Rendered</button>
+                </div>
+                <textarea id="output" readonly placeholder="Klik 'Generate README' untuk melihat hasilnya..."></textarea>
+                <div id="renderedPreview" class="rendered-preview" style="display:none;"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ for <strong>nezXproject</strong> | Powered by GitHub Profile Generator</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
