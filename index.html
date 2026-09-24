@@ -3,126 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 GitHub Profile README Generator</title>
+    <title>✨ GitHub README GeneratorzX</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 GitHub Profile README Generator</h1>
-            <p class="subtitle">Buat README profil GitHub yang memukau dalam hitungan detik!</p>
-        </header>
 
-        <div class="main-content">
-            <!-- FORM SECTION -->
-            <div class="form-section">
-                <h2>📝 Data Profil</h2>
-                
-                <div class="form-group">
-                    <label>Username GitHub *</label>
-                    <input type="text" id="username" placeholder="nezXproject" value="nezXproject">
-                </div>
+<!-- ANIMATED BACKGROUND -->
+<div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+<div class="grid-bg"></div>
 
-                <div class="form-group">
-                    <label>Nama Tampilan</label>
-                    <input type="text" id="displayName" placeholder="nezX" value="nezX">
-                </div>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">README<span class="accent">Gen</span></span>
+    </div>
+    <div class="nav-steps">
+        <div class="nav-step" data-step="1">
+            <span class="step-dot">1</span>
+            <span class="step-label">Detect</span>
+        </div>
+        <div class="nav-line"></div>
+        <div class="nav-step" data-step="2">
+            <span class="step-dot">2</span>
+            <span class="step-label">Customize</span>
+        </div>
+        <div class="nav-line"></div>
+        <div class="nav-step" data-step="3">
+            <span class="step-dot">3</span>
+            <span class="step-label">Export</span>
+        </div>
+    </div>
+</nav>
 
-                <div class="form-group">
-                    <label>Role / Title</label>
-                    <input type="text" id="role" placeholder="Full-Stack Developer in Progress" value="Full-Stack Developer in Progress">
-                </div>
+<!-- MAIN -->
+<main class="main">
 
-                <div class="form-group">
-                    <label>Lokasi</label>
-                    <input type="text" id="location" placeholder="Indonesia 🇮🇩" value="Indonesia 🇮🇩">
-                </div>
+    <!-- ==================== STEP 1: DETECT ==================== -->
+    <section class="step-view active" id="stepView1">
+        <div class="hero">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Auto-Detect GitHub Profile
+            </div>
+            <h1 class="hero-title">
+                Bikin <span class="gradient-text">README Profil GitHub</span><br>
+                yang Bikin Dosen <span class="gradient-text-2">Terpukau</span> 🤯
+            </h1>
+            <p class="hero-sub">
+                Cukup masukkan username GitHub kamu. Kami akan otomatis mendeteksi <b>bahasa pemrograman</b>,
+                <b>repository populer</b>, dan <b>statistik</b> kamu. Semua dalam hitungan detik.
+            </p>
 
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="email" placeholder="your-email@example.com" value="your-email@example.com">
+            <div class="input-hero">
+                <div class="input-wrapper">
+                    <span class="input-prefix">github.com/</span>
+                    <input type="text" id="ghUsername" placeholder="nezXproject" value="nezXproject" autocomplete="off" spellcheck="false">
+                    <button class="btn-detect" id="btnDetect" onclick="detectUser()">
+                        <span class="btn-detect-text">Detect</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
                 </div>
-
-                <div class="form-group">
-                    <label>Bio / Tentang Saya</label>
-                    <textarea id="bio" rows="3" placeholder="Sedang mempertajam fundamental full-stack coding">Sedang mempertajam fundamental full-stack coding</textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Fun Fact</label>
-                    <input type="text" id="funFact" placeholder="Suka membuat project dengan twist kreatif!" value="Suka membuat project dengan twist kreatif!">
-                </div>
-
-                <div class="form-group">
-                    <label>Motto</label>
-                    <input type="text" id="motto" placeholder="Belajar, Bangun, Bagikan 🚀" value="Belajar, Bangun, Bagikan 🚀">
-                </div>
-
-                <h2>💻 Tech Stack</h2>
-                <div class="form-group">
-                    <label>Programming Languages (pisahkan dengan koma)</label>
-                    <input type="text" id="languages" placeholder="Python, JavaScript, PHP, HTML, Shell" value="Python, JavaScript, PHP, HTML5, Shell Script">
-                </div>
-
-                <div class="form-group">
-                    <label>Tools & Platforms (pisahkan dengan koma)</label>
-                    <input type="text" id="tools" placeholder="Git, GitHub, Linux, VS Code" value="Git, GitHub, Linux, Termux, VS Code">
-                </div>
-
-                <h2>📌 Projects</h2>
-                <div id="projectsContainer">
-                    <!-- Project items akan di-generate via JS -->
-                </div>
-                <button type="button" class="btn-add" onclick="addProject()">➕ Tambah Project</button>
-
-                <h2>🎨 Tema</h2>
-                <div class="form-group">
-                    <label>Pilih Tema</label>
-                    <select id="theme">
-                        <option value="tokyonight">🌃 Tokyo Night</option>
-                        <option value="radical">🌈 Radical</option>
-                        <option value="dracula">🧛 Dracula</option>
-                        <option value="gruvbox">🎨 Gruvbox</option>
-                        <option value="onedark">🌙 One Dark</option>
-                        <option value="synthwave">🎵 Synthwave</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Warna Aksen</label>
-                    <input type="color" id="accentColor" value="#36BCF7">
-                </div>
-
-                <div class="button-group">
-                    <button class="btn-generate" onclick="generateReadme()">✨ Generate README</button>
-                    <button class="btn-clear" onclick="clearForm()">🗑️ Reset</button>
-                </div>
+                <div class="input-hint" id="inputHint">💡 Contoh: nezXproject, torvalds, gaearon</div>
             </div>
 
-            <!-- PREVIEW SECTION -->
-            <div class="preview-section">
-                <div class="preview-header">
-                    <h2>👁️ Preview & Output</h2>
-                    <div class="preview-actions">
-                        <button class="btn-copy" onclick="copyReadme()">📋 Copy</button>
-                        <button class="btn-download" onclick="downloadReadme()">⬇️ Download</button>
-                    </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-title">Auto-Detect</div>
+                    <div class="feature-desc">Deteksi bahasa & repo otomatis via GitHub API</div>
                 </div>
-                <div class="preview-tabs">
-                    <button class="tab-btn active" onclick="switchTab('raw')">📄 Raw Markdown</button>
-                    <button class="tab-btn" onclick="switchTab('rendered')">🎨 Rendered</button>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-title">6 Tema Premium</div>
+                    <div class="feature-desc">Tokyo Night, Dracula, Synthwave & lainnya</div>
                 </div>
-                <textarea id="output" readonly placeholder="Klik 'Generate README' untuk melihat hasilnya..."></textarea>
-                <div id="renderedPreview" class="rendered-preview" style="display:none;"></div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Instant Export</div>
+                    <div class="feature-desc">Copy & download README siap pakai</div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <footer>
-            <p>Made with ❤️ for <strong>nezXproject</strong> | Powered by GitHub Profile Generator</p>
-        </footer>
-    </div>
+    <!-- ==================== STEP 2: CUSTOMIZE ==================== -->
+    <section class="step-view" id="stepView2">
+        <div class="customize-layout">
 
-    <script src="script.js"></script>
+            <!-- LEFT: FORM PANEL -->
+            <div class="form-panel">
+                <div class="panel-header">
+                    <h2>🎨 Kustomisasi Profil</h2>
+                    <p>Semua field sudah terisi otomatis. Edit sesuai keinginan!</p>
+                </div>
+
+                <!-- PROFILE CARD -->
+                <div class="detected-card" id="detectedCard">
+                    <img id="avatarImg" class="detected-avatar" src="" alt="avatar">
+                    <div class="detected-info">
+                        <div class="detected-name" id="detectedName">Loading...</div>
+                        <div class="detected-bio" id="detectedBio">—</div>
+                        <div class="detected-meta">
+                            <span id="detectedRepos">📦 0 repos</span>
+                            <span id="detectedFollowers">👥 0 followers</span>
+                            <span id="detectedFollowing">➡️ 0 following</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACCORDION: PROFILE -->
+                <details class="acc" open>
+                    <summary>
+                        <span class="acc-icon">👤</span>
+                        <span>Informasi Profil</span>
+                        <span class="acc-arrow">▾</span>
+                    </summary>
+                    <div class="acc-body">
+                        <div class="field">
+                            <label>Nama Tampilan</label>
+                            <input type="text" id="f_displayName" placeholder="nezX">
+                        </div>
+                        <div class="field">
+                            <label>Role / Title</label>
+                            <input type="text" id="f_role" placeholder="Full-Stack Developer in Progress">
+                        </div>
+                        <div class="field">
+                            <label>Lokasi</label>
+                            <input type="text" id="f_location" placeholder="Indonesia 🇮🇩">
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" id="f_email" placeholder="you@example.com">
+                        </div>
+                        <div class="field">
+                            <label>Bio Singkat</label>
+                            <textarea id="f_bio" rows="2" placeholder="Focused on building clean, high-impact projects"></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Fun Fact</label>
+                            <input type="text" id="f_funFact" placeholder="Suka bikin project dengan twist unik!">
+                        </div>
+                        <div class="field">
+                            <label>Motto</label>
+                            <input type="text" id="f_motto" placeholder="Belajar, Bangun, Bagikan 🚀">
+                        </div>
+                    </div>
+                </details>
+
+                <!-- ACCORDION: TECH -->
+                <details class="acc">
+                    <summary>
+                        <span class="acc-icon">💻</span>
+                        <span>Tech Stack</span>
+                        <span class="acc-badge" id="techCount">0</span>
+                        <span class="acc-arrow">▾</span>
+                    </summary>
+                    <div class="acc-body">
+                        <div class="field">
+                            <label>Bahasa & Tools (klik untuk toggle)</label>
+                            <div class="chips-input" id="techChips"></div>
+                            <input type="text" id="techCustomInput" placeholder="Tambah manual... (Enter)" class="chip-add">
+                        </div>
+                    </div>
+                </details>
+
+                <!-- ACCORDION: PROJECTS -->
+                <details class="acc">
+                    <summary>
+                        <span class="acc-icon">📌</span>
+                        <span>Project Unggulan</span>
+                        <span class="acc-badge" id="projCount">0</span>
+                        <span class="acc-arrow">▾</span>
+                    </summary>
+                    <div class="acc-body">
+                        <div id="projectsList"></div>
+                        <button class="btn-ghost" onclick="addProject()">
+                            <span>➕</span> Tambah Project Manual
+                        </button>
+                    </div>
+                </details>
+
+                <!-- ACCORDION: THEME -->
+                <details class="acc">
+                    <summary>
+                        <span class="acc-icon">🎨</span>
+                        <span>Tema & Warna</span>
+                        <span class="acc-arrow">▾</span>
+                    </summary>
+                    <div class="acc-body">
+                        <div class="field">
+                            <label>Pilih Tema</label>
+                            <div class="theme-grid" id="themeGrid"></div>
+                        </div>
+                        <div class="field">
+                            <label>Warna Aksen</label>
+                            <div class="color-row">
+                                <input type="color" id="f_accent" value="#36BCF7">
+                                <input type="text" id="f_accentHex" value="#36BCF7" maxlength="7">
+                                <div class="color-presets" id="colorPresets"></div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Animasi Typing</label>
+                            <textarea id="f_typing" rows="3" placeholder="Satu baris per animasi"></textarea>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- RIGHT: PREVIEW PANEL -->
+            <div class="preview-panel">
+                <div class="preview-header">
+                    <div class="preview-title">
+                        <span class="live-dot"></span>
+                        Live Preview
+                    </div>
+                    <div class="preview-tabs">
+                        <button class="ptab active" data-tab="rendered" onclick="switchPreviewTab('rendered')">🎨 Render</button>
+                        <button class="ptab" data-tab="raw" onclick="switchPreviewTab('raw')">📄 Markdown</button>
+                    </div>
+                </div>
+
+                <div class="preview-body">
+                    <!-- RENDERED -->
+                    <div class="preview-render" id="previewRender">
+                        <div class="preview-placeholder">
+                            <div class="ph-icon">👈</div>
+                            <div class="ph-text">Detect username dulu untuk melihat preview</div>
+                        </div>
+                    </div>
+
+                    <!-- RAW -->
+                    <div class="preview-raw" id="previewRaw" style="display:none;">
+                        <pre id="rawOutput"></pre>
+                    </div>
+                </div>
+
+                <div class="preview-footer">
+                    <button class="btn-secondary" onclick="goToStep(1)">
+                        <span>←</span> Kembali
+                    </button>
+                    <div class="footer-actions">
+                        <button class="btn-secondary" onclick="copyReadme()">
+                            <span>📋</span> Copy
+                        </button>
+                        <button class="btn-secondary" onclick="downloadReadme()">
+                            <span>⬇️</span> Download
+                        </button>
+                        <button class="btn-primary" onclick="goToStep(3)">
+                            Lanjut <span>→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== STEP 3: EXPORT ==================== -->
+    <section class="step-view" id="stepView3">
+        <div class="export-view">
+            <div class="export-hero">
+                <div class="export-icon">🎉</div>
+                <h1 class="export-title">README Kamu <span class="gradient-text">Siap!</span></h1>
+                <p class="export-sub">Tinggal 3 langkah mudah untuk memasang di profil GitHub kamu</p>
+            </div>
+
+            <div class="export-steps">
+                <div class="export-step">
+                    <div class="export-num">1</div>
+                    <div class="export-content">
+                        <h3>Buat Repository Profil</h3>
+                        <p>Buat repo baru dengan nama <code id="repoNameCopy">nezXproject</code> (harus sama dengan username GitHub kamu)</p>
+                        <button class="btn-mini" onclick="copyRepoName()">📋 Copy Nama Repo</button>
+                    </div>
+                </div>
+
+                <div class="export-step">
+                    <div class="export-num">2</div>
+                    <div class="export-content">
+                        <h3>Buat File <code>README.md</code></h3>
+                        <p>Di dalam repo tersebut, buat file baru bernama <code>README.md</code></p>
+                    </div>
+                </div>
+
+                <div class="export-step">
+                    <div class="export-num">3</div>
+                    <div class="export-content">
+                        <h3>Paste & Commit</h3>
+                        <p>Copy README yang sudah di-generate, paste ke file, dan commit!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="export-actions">
+                <button class="btn-primary btn-lg" onclick="copyReadme()">
+                    📋 Copy README ke Clipboard
+                </button>
+                <button class="btn-secondary btn-lg" onclick="downloadReadme()">
+                    ⬇️ Download README.md
+                </button>
+            </div>
+
+            <div class="export-tip">
+                <span class="tip-icon">💡</span>
+                <div>
+                    <b>Pro Tip:</b> Untuk mengaktifkan animasi <b>Snake Contribution</b>, tambahkan GitHub Action di
+                    <code>.github/workflows/snake.yml</code> — cari tutorial "Platane/snk" di Google.
+                </div>
+            </div>
+
+            <div class="export-footer">
+                <button class="btn-secondary" onclick="goToStep(2)">
+                    ← Kembali ke Editor
+                </button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
